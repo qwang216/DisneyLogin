@@ -15,6 +15,18 @@ struct PaywallViewModel {
         self.preference = preference
     }
 
+    var theme: Theme {
+        return preference.theme
+    }
+
+    var sku: String {
+        return preference.sku
+    }
+
+    var shouldFullScreenSplash: Bool {
+        return preference.theme == .espn
+    }
+
     var freeTrailText: String {
         return preference.trialPromo
     }

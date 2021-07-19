@@ -41,6 +41,7 @@ extension UIImageView {
     func fetchImage(urlPath: String, imageCacher: ImageCachable? = ImageCacher.shared) -> URLSessionDataTask? {
         if let cachedImage = imageCacher?.getCacheImage(url: urlPath) {
             self.image = cachedImage
+            self.layoutIfNeeded()
             return nil
         }
         let request = GetImageData(relativePath: urlPath).executeRequest(session: .paywall) { result in
@@ -48,10 +49,12 @@ extension UIImageView {
                 switch result {
                 case .success(let imageData):
                     self.image = UIImage(data: imageData)
+                    self.layoutIfNeeded()
                     imageCacher?.cache(image: self.image!, url: urlPath)
                 case .failure(let error):
                     print(error.devErrorDescription)
-                    self.image = UIImage(named: "place-holder")
+                    // TODO: Find a place holder image
+                    // self.image = UIImage(named: "place-holder")
                 }
             }
         }

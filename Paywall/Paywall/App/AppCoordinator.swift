@@ -11,29 +11,24 @@ import SwiftUI
 
 class AppCoordinator {
     private let window: UIWindow
-    private let useUIKit: Bool
 
+    private var currViewModel: PaywallViewModel?
     private var payWallViewController: PaywallViewController?
-    private var payWallView: PaywallView?
+
+    private lazy var disneyLoginviewAble = DisneyLoginActionableView.instanceFromNib()
+    private lazy var espnLoginviewAble = ESPNLoginActionableView.instanceFromNib()
 
     private let networkService: DisneyNetworkServiceable
 
-    init(window: UIWindow, useUIKit: Bool, networkService: DisneyNetworkServiceable) {
+    init(window: UIWindow, networkService: DisneyNetworkServiceable) {
         self.window = window
-        self.useUIKit = useUIKit
         self.networkService = networkService
     }
 
     func start() {
-        if useUIKit {
-            payWallViewController = PaywallViewController()
-            payWallViewController?.delegate = self
-            payWallViewController?.view.backgroundColor = .red
-            window.rootViewController = payWallViewController
-        } else {
-            payWallView = PaywallView()
-            window.rootViewController = UIHostingController(rootView: payWallView)
-        }
+        payWallViewController = PaywallViewController()
+        payWallViewController?.shakeDelegate = self
+        window.rootViewController = payWallViewController
         window.makeKeyAndVisible()
         fetchLoginPreference()
     }
@@ -52,25 +47,36 @@ class AppCoordinator {
     }
 
     private func setLoginPreference(_ preference: LoginPreference) {
-        let viewModel = PaywallViewModel(preference: preference)
-        if useUIKit {
-            payWallViewController?.payWallViewModel = viewModel
-            payWallViewController?.view.backgroundColor = .red
-        } else {
-            payWallView?.payWallViewModel = viewModel
+        currViewModel = PaywallViewModel(preference: preference)
+        guard let viewModel = currViewModel else { return }
+        payWallViewController?.loginActionableView.removeFromSuperview()
+        switch viewModel.theme {
+        case .disney:
+            disneyLoginviewAble.delegate = self
+            payWallViewController?.loginActionableView = disneyLoginviewAble
+        case .espn:
+            espnLoginviewAble.delegate = self
+            payWallViewController?.loginActionableView = espnLoginviewAble
         }
+        payWallViewController?.payWallViewModel = viewModel
     }
 
     private func showAlert(title: String, message: String) {
-        if useUIKit {
-            let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let reloadAction = UIAlertAction(title: "Reload", style: .default) { [weak self] _ in
-                self?.fetchLoginPreference()
-            }
-            alertView.addAction(reloadAction)
-            payWallViewController?.present(alertView, animated: true, completion: nil)
-        }
+        payWallViewController?.showAlertView(title: title, message: message)
     }
+}
+
+extension AppCoordinator: LoginFlowViewDelegate {
+    func didTapLoginButton() {
+        payWallViewController?.showAlertView(title: "Log In", message: "")
+    }
+
+    func didTapSignupButton() {
+        guard let viewModel = currViewModel else { return }
+        payWallViewController?.showAlertView(title: "SKU", message: viewModel.sku)
+    }
+
+
 }
 
 extension AppCoordinator: PaywallViewDelegate {

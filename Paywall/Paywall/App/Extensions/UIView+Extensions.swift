@@ -8,6 +8,17 @@
 
 import UIKit
 
+
+protocol NibableView {
+    static func instanceFromNib() -> Self
+}
+
+extension NibableView where Self: UIView {
+    static func instanceFromNib() -> Self {
+        return UINib(nibName: String(describing: Self.self), bundle: nil).instantiate(withOwner: nil, options: nil).first as! Self
+    }
+}
+
 struct Anchor {
     var top: NSLayoutConstraint?
     var bottom: NSLayoutConstraint?
@@ -18,6 +29,16 @@ struct Anchor {
 }
 
 extension UIView {
+
+    @discardableResult
+    func center(view: UIView, offSetX: CGFloat = 0, offSetY: CGFloat = 0) -> [NSLayoutConstraint] {
+        anchor()
+        let constraints =
+            [centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offSetX),
+             centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offSetY)]
+        NSLayoutConstraint.activate(constraints)
+        return constraints
+    }
 
     @discardableResult
     func fillToSuperview(padding: UIEdgeInsets = .zero) -> Anchor? {
@@ -35,7 +56,6 @@ extension UIView {
                 trailing: NSLayoutXAxisAnchor? = nil,
                 padding: UIEdgeInsets = .zero,
                 size: CGSize = .zero) -> Anchor? {
-
         translatesAutoresizingMaskIntoConstraints = false
         var anchor = Anchor()
         if let top = top {

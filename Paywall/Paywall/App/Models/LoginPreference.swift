@@ -8,8 +8,14 @@
 
 import Foundation
 
+enum Theme: String, Decodable {
+    case disney
+    case espn
+}
+
 struct LoginPreference: Decodable {
     let theme: Theme
+    let sku: String
     let subtexts: [String]
     let trialPromo: String
     let imageAssets: ImageAssets
@@ -17,13 +23,9 @@ struct LoginPreference: Decodable {
 
 extension LoginPreference {
     private enum CodingKeys: String, CodingKey {
-        case theme, subtexts
+        case theme, sku, subtexts
         case trialPromo = "trial-promo"
         case imageAssets = "image-assets"
-    }
-    enum Theme: String, Decodable {
-        case disney
-        case espn
     }
 
     struct ImageAssets: Decodable {

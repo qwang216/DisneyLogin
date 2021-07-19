@@ -11,87 +11,65 @@ protocol PaywallViewDelegate: AnyObject {
     func userDidShakeDevice()
 }
 
-protocol DisneyLoginActionViewDelegate: AnyObject {
-    func didTapLoginButton()
-    func didTapSignupButton()
-}
-
-class DisneyLoginActionableView: UIView {
-    weak var delegate: DisneyLoginActionViewDelegate?
-    let signupButton: UIButton = {
-        let bt = UIButton(type: .custom)
-        bt.setTitle("SIGN UP NOW", for: .normal)
-        bt.setTitleColor(.white, for: .normal)
-        bt.backgroundColor = .blue
-        return bt
-    }()
-
-    let vStack: UIStackView = {
-        let vs = UIStackView()
-        vs.axis = .vertical
-        vs.alignment = .fill
-        return vs
-    }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(vStack)
-        vStack.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
-        vStack.addArrangedSubview(signupButton)
-
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-}
-
 class PaywallViewController: UIViewController {
     let splashImageView: UIImageView = {
         let iv = UIImageView(image: nil)
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
 
-    let loginActionView: DisneyLoginActionableView = {
-        let view = DisneyLoginActionableView(frame: .zero)
-        view.backgroundColor = .green
-        return view
-    }()
+    var loginActionableView: UIView = UIView()
 
     var payWallViewModel: PaywallViewModel? {
         didSet {
             updateUI()
         }
     }
-    weak var delegate: PaywallViewDelegate?
+    weak var shakeDelegate: PaywallViewDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewConstrains()
-    }
-
-    private func setupViewConstrains() {
         view.addSubview(splashImageView)
-        view.addSubview(loginActionView)
-        splashImageView.fillToSuperview()
-        loginActionView.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, size: .init(width: 0, height: 300))
+        updateUI()
     }
 
     func updateUI() {
-        guard let viewModel = payWallViewModel else { return }
-        let imageTask = splashImageView.fetchImage(urlPath: viewModel.splashImageURLString)
+        guard let viewModel = payWallViewModel else {
+            shouldHideView(true)
+            return
+        }
+        shouldHideView(false)
+        view.addSubview(loginActionableView)
+        let loginActionHeight = view.frame.height * 0.33
+        let deltaPercent = view.frame.height * 0.04
+        let sidePadding: CGFloat = viewModel.shouldFullScreenSplash ? 30 : 0
+        loginActionableView.anchor(leading: view.leadingAnchor,
+                               bottom: view.bottomAnchor,
+                               trailing: view.trailingAnchor,
+                               padding: .init(top: 0, left: sidePadding, bottom: 0, right: sidePadding),
+                               size: .init(width: 0, height: loginActionHeight))
+        view.backgroundColor = viewModel.shouldFullScreenSplash ? .black : UIColor(red: 0.100565, green: 0.113202, blue: 0.160653, alpha: 1)
+        let bottomConstant: CGFloat = viewModel.shouldFullScreenSplash ? 0 : loginActionHeight + deltaPercent
+        splashImageView.contentMode = viewModel.shouldFullScreenSplash ? .scaleAspectFill : .scaleToFill
+        splashImageView.anchor(top: view.topAnchor,
+                               leading: view.leadingAnchor,
+                               bottom: view.bottomAnchor,
+                               trailing: view.trailingAnchor,
+                               padding: .init(top: 0,
+                                              left: 0,
+                                              bottom: bottomConstant,
+                                              right: 0))
+        let imageTask = splashImageView.fetchImage(urlPath: viewModel.splashImageURLString, imageCacher: nil)
         imageTask?.resume()
+        view.layoutIfNeeded()
+    }
 
-//        splashImageView
-        print(viewModel.freeTrailText)
-        print(viewModel.brandsURLString)
-        print(viewModel.logoURLString)
+    private func shouldHideView(_ shouldHide: Bool) {
+        splashImageView.isHidden = shouldHide
+        loginActionableView.isHidden = shouldHide
     }
 
     func didShake() {
-        // TODO: Reload the paywall whenever the shake gesture occurs
-        delegate?.userDidShakeDevice()
+        shakeDelegate?.userDidShakeDevice()
     }
 
 }

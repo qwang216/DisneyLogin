@@ -30,6 +30,11 @@
 		D4CA99A926A4E2BC007229F5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */; };
 		D4CA99AB26A4F203007229F5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99AA26A4F203007229F5 /* UIView+Extensions.swift */; };
 		D4CA99AE26A4F4A3007229F5 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99AD26A4F4A3007229F5 /* UIImageView+Extensions.swift */; };
+		D4CA99B026A532CF007229F5 /* DisneyLoginActionableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA99AF26A532CF007229F5 /* DisneyLoginActionableView.xib */; };
+		D4CA99B226A532E9007229F5 /* DisneyLoginActionableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99B126A532E9007229F5 /* DisneyLoginActionableView.swift */; };
+		D4CA99B626A54549007229F5 /* ESPNLoginActionableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA99B526A54549007229F5 /* ESPNLoginActionableView.xib */; };
+		D4CA99B826A5455E007229F5 /* ESPNLoginActionableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99B726A5455E007229F5 /* ESPNLoginActionableView.swift */; };
+		D4CA99BB26A54FA3007229F5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99BA26A54FA3007229F5 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,11 @@
 		D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D4CA99AA26A4F203007229F5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		D4CA99AD26A4F4A3007229F5 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		D4CA99AF26A532CF007229F5 /* DisneyLoginActionableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisneyLoginActionableView.xib; sourceTree = "<group>"; };
+		D4CA99B126A532E9007229F5 /* DisneyLoginActionableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyLoginActionableView.swift; sourceTree = "<group>"; };
+		D4CA99B526A54549007229F5 /* ESPNLoginActionableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ESPNLoginActionableView.xib; sourceTree = "<group>"; };
+		D4CA99B726A5455E007229F5 /* ESPNLoginActionableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPNLoginActionableView.swift; sourceTree = "<group>"; };
+		D4CA99BA26A54FA3007229F5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +175,7 @@
 				C3E0C60A25239C310034987E /* AppDelegate.swift */,
 				C3E0C60C25239C310034987E /* SceneDelegate.swift */,
 				D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */,
+				D4CA99B326A532FC007229F5 /* View */,
 				D4CA99AC26A4F492007229F5 /* Extensions */,
 				D4CA99A726A4E2AE007229F5 /* ViewModels */,
 				D4CA999F26A4CAEC007229F5 /* Models */,
@@ -231,8 +242,36 @@
 			children = (
 				D4CA99AA26A4F203007229F5 /* UIView+Extensions.swift */,
 				D4CA99AD26A4F4A3007229F5 /* UIImageView+Extensions.swift */,
+				D4CA99BA26A54FA3007229F5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4CA99B326A532FC007229F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99B426A5452E007229F5 /* Disney */,
+				D4CA99B926A54562007229F5 /* ESPN */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4CA99B426A5452E007229F5 /* Disney */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99B126A532E9007229F5 /* DisneyLoginActionableView.swift */,
+				D4CA99AF26A532CF007229F5 /* DisneyLoginActionableView.xib */,
+			);
+			path = Disney;
+			sourceTree = "<group>";
+		};
+		D4CA99B926A54562007229F5 /* ESPN */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99B526A54549007229F5 /* ESPNLoginActionableView.xib */,
+				D4CA99B726A5455E007229F5 /* ESPNLoginActionableView.swift */,
+			);
+			path = ESPN;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +355,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CA99B626A54549007229F5 /* ESPNLoginActionableView.xib in Resources */,
+				D4CA99B026A532CF007229F5 /* DisneyLoginActionableView.xib in Resources */,
 				C3E0C6382523A0BF0034987E /* README.md in Resources */,
 				C3E0C61725239C330034987E /* LaunchScreen.storyboard in Resources */,
 				C3E0C61425239C330034987E /* Preview Assets.xcassets in Resources */,
@@ -345,7 +386,10 @@
 				C3E0C60B25239C310034987E /* AppDelegate.swift in Sources */,
 				C3E0C63225239F7A0034987E /* SwiftUIShakeHandling.swift in Sources */,
 				C3E0C60D25239C310034987E /* SceneDelegate.swift in Sources */,
+				D4CA99BB26A54FA3007229F5 /* UIViewController+Extensions.swift in Sources */,
+				D4CA99B226A532E9007229F5 /* DisneyLoginActionableView.swift in Sources */,
 				D4CA99A926A4E2BC007229F5 /* AppCoordinator.swift in Sources */,
+				D4CA99B826A5455E007229F5 /* ESPNLoginActionableView.swift in Sources */,
 				C3E0C60F25239C310034987E /* PaywallView.swift in Sources */,
 				C3E0C63025239D4B0034987E /* PaywallViewController.swift in Sources */,
 				D4CA99A626A4DE62007229F5 /* PaywallViewModel.swift in Sources */,
