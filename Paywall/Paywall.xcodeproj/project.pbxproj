@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3E0C60B25239C310034987E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C60A25239C310034987E /* AppDelegate.swift */; };
+		C3E0C60D25239C310034987E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C60C25239C310034987E /* SceneDelegate.swift */; };
+		C3E0C60F25239C310034987E /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C60E25239C310034987E /* PaywallView.swift */; };
+		C3E0C61125239C330034987E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C61025239C330034987E /* Assets.xcassets */; };
+		C3E0C61425239C330034987E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C61325239C330034987E /* Preview Assets.xcassets */; };
+		C3E0C61725239C330034987E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C61525239C330034987E /* LaunchScreen.storyboard */; };
+		C3E0C62225239C330034987E /* PaywallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C62125239C330034987E /* PaywallTests.swift */; };
+		C3E0C63025239D4B0034987E /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C62F25239D4B0034987E /* PaywallViewController.swift */; };
+		C3E0C63225239F7A0034987E /* SwiftUIShakeHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C63125239F7A0034987E /* SwiftUIShakeHandling.swift */; };
+		C3E0C6342523A0B20034987E /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C6332523A0B20034987E /* scripts */; };
+		C3E0C6372523A0BF0034987E /* PROMPT.md in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C6352523A0BF0034987E /* PROMPT.md */; };
+		C3E0C6382523A0BF0034987E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C6362523A0BF0034987E /* README.md */; };
+		C3E0C63A2523A1A10034987E /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C6392523A1A00034987E /* NetworkingHelpers.swift */; };
+		D4CA999526A49BBE007229F5 /* DisneyAPIExecutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA999426A49BBE007229F5 /* DisneyAPIExecutable.swift */; };
+		D4CA999726A4AF5E007229F5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA999626A4AF5E007229F5 /* APIError.swift */; };
+		D4CA999A26A4B144007229F5 /* GetLoginPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA999926A4B144007229F5 /* GetLoginPreference.swift */; };
+		D4CA999E26A4CAE0007229F5 /* LoginPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA999D26A4CAE0007229F5 /* LoginPreference.swift */; };
+		D4CA99A126A4CB27007229F5 /* GetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99A026A4CB27007229F5 /* GetImage.swift */; };
+		D4CA99A326A4CB7E007229F5 /* DisneyNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99A226A4CB7E007229F5 /* DisneyNetworkService.swift */; };
+		D4CA99A626A4DE62007229F5 /* PaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99A526A4DE62007229F5 /* PaywallViewModel.swift */; };
+		D4CA99A926A4E2BC007229F5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */; };
+		D4CA99AB26A4F203007229F5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99AA26A4F203007229F5 /* UIView+Extensions.swift */; };
+		D4CA99AE26A4F4A3007229F5 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA99AD26A4F4A3007229F5 /* UIImageView+Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3E0C61E25239C330034987E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3E0C5FF25239C310034987E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3E0C60625239C310034987E;
+			remoteInfo = Paywall;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3E0C60725239C310034987E /* Paywall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paywall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3E0C60A25239C310034987E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C3E0C60C25239C310034987E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C3E0C60E25239C310034987E /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		C3E0C61025239C330034987E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3E0C61325239C330034987E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C3E0C61625239C330034987E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C3E0C61825239C330034987E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3E0C61D25239C330034987E /* PaywallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaywallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3E0C62125239C330034987E /* PaywallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallTests.swift; sourceTree = "<group>"; };
+		C3E0C62325239C330034987E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3E0C62F25239D4B0034987E /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
+		C3E0C63125239F7A0034987E /* SwiftUIShakeHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIShakeHandling.swift; sourceTree = "<group>"; };
+		C3E0C6332523A0B20034987E /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../scripts; sourceTree = "<group>"; };
+		C3E0C6352523A0BF0034987E /* PROMPT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PROMPT.md; path = ../../PROMPT.md; sourceTree = "<group>"; };
+		C3E0C6362523A0BF0034987E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		C3E0C6392523A1A00034987E /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
+		D4CA999426A49BBE007229F5 /* DisneyAPIExecutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyAPIExecutable.swift; sourceTree = "<group>"; };
+		D4CA999626A4AF5E007229F5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D4CA999926A4B144007229F5 /* GetLoginPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoginPreference.swift; sourceTree = "<group>"; };
+		D4CA999D26A4CAE0007229F5 /* LoginPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreference.swift; sourceTree = "<group>"; };
+		D4CA99A026A4CB27007229F5 /* GetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImage.swift; sourceTree = "<group>"; };
+		D4CA99A226A4CB7E007229F5 /* DisneyNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyNetworkService.swift; sourceTree = "<group>"; };
+		D4CA99A526A4DE62007229F5 /* PaywallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewModel.swift; sourceTree = "<group>"; };
+		D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D4CA99AA26A4F203007229F5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		D4CA99AD26A4F4A3007229F5 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3E0C60425239C310034987E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3E0C61A25239C330034987E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3E0C5FE25239C310034987E = {
+			isa = PBXGroup;
+			children = (
+				C3E0C60925239C310034987E /* Paywall */,
+				C3E0C62025239C330034987E /* PaywallTests */,
+				C3E0C6332523A0B20034987E /* scripts */,
+				C3E0C60825239C310034987E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3E0C60825239C310034987E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C60725239C310034987E /* Paywall.app */,
+				C3E0C61D25239C330034987E /* PaywallTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3E0C60925239C310034987E /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C6352523A0BF0034987E /* PROMPT.md */,
+				C3E0C6362523A0BF0034987E /* README.md */,
+				C3E0C62E25239D370034987E /* App */,
+				C3E0C62D25239D300034987E /* SwiftUI */,
+				C3E0C62C25239D270034987E /* UIKit */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
+		C3E0C61225239C330034987E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C61325239C330034987E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C3E0C62025239C330034987E /* PaywallTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C62125239C330034987E /* PaywallTests.swift */,
+				C3E0C62325239C330034987E /* Info.plist */,
+			);
+			path = PaywallTests;
+			sourceTree = "<group>";
+		};
+		C3E0C62C25239D270034987E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C62F25239D4B0034987E /* PaywallViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		C3E0C62D25239D300034987E /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C61225239C330034987E /* Preview Content */,
+				C3E0C60E25239C310034987E /* PaywallView.swift */,
+				C3E0C63125239F7A0034987E /* SwiftUIShakeHandling.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		C3E0C62E25239D370034987E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C61025239C330034987E /* Assets.xcassets */,
+				C3E0C61525239C330034987E /* LaunchScreen.storyboard */,
+				C3E0C61825239C330034987E /* Info.plist */,
+				C3E0C60A25239C310034987E /* AppDelegate.swift */,
+				C3E0C60C25239C310034987E /* SceneDelegate.swift */,
+				D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */,
+				D4CA99AC26A4F492007229F5 /* Extensions */,
+				D4CA99A726A4E2AE007229F5 /* ViewModels */,
+				D4CA999F26A4CAEC007229F5 /* Models */,
+				D4CA999826A4AF72007229F5 /* Networking */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D4CA999826A4AF72007229F5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA999B26A4B207007229F5 /* Protocols */,
+				D4CA999C26A4B213007229F5 /* Endpoints */,
+				D4CA99A426A4CB89007229F5 /* Services */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D4CA999B26A4B207007229F5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3E0C6392523A1A00034987E /* NetworkingHelpers.swift */,
+				D4CA999426A49BBE007229F5 /* DisneyAPIExecutable.swift */,
+				D4CA999626A4AF5E007229F5 /* APIError.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D4CA999C26A4B213007229F5 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA999926A4B144007229F5 /* GetLoginPreference.swift */,
+				D4CA99A026A4CB27007229F5 /* GetImage.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		D4CA999F26A4CAEC007229F5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA999D26A4CAE0007229F5 /* LoginPreference.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D4CA99A426A4CB89007229F5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99A226A4CB7E007229F5 /* DisneyNetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D4CA99A726A4E2AE007229F5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99A526A4DE62007229F5 /* PaywallViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D4CA99AC26A4F492007229F5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99AA26A4F203007229F5 /* UIView+Extensions.swift */,
+				D4CA99AD26A4F4A3007229F5 /* UIImageView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3E0C60625239C310034987E /* Paywall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3E0C62625239C330034987E /* Build configuration list for PBXNativeTarget "Paywall" */;
+			buildPhases = (
+				C3E0C60325239C310034987E /* Sources */,
+				C3E0C60425239C310034987E /* Frameworks */,
+				C3E0C60525239C310034987E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Paywall;
+			productName = Paywall;
+			productReference = C3E0C60725239C310034987E /* Paywall.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3E0C61C25239C330034987E /* PaywallTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3E0C62925239C330034987E /* Build configuration list for PBXNativeTarget "PaywallTests" */;
+			buildPhases = (
+				C3E0C61925239C330034987E /* Sources */,
+				C3E0C61A25239C330034987E /* Frameworks */,
+				C3E0C61B25239C330034987E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3E0C61F25239C330034987E /* PBXTargetDependency */,
+			);
+			name = PaywallTests;
+			productName = PaywallTests;
+			productReference = C3E0C61D25239C330034987E /* PaywallTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3E0C5FF25239C310034987E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Disney Streaming Services";
+				TargetAttributes = {
+					C3E0C60625239C310034987E = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					C3E0C61C25239C330034987E = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = C3E0C60625239C310034987E;
+					};
+				};
+			};
+			buildConfigurationList = C3E0C60225239C310034987E /* Build configuration list for PBXProject "Paywall" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3E0C5FE25239C310034987E;
+			productRefGroup = C3E0C60825239C310034987E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3E0C60625239C310034987E /* Paywall */,
+				C3E0C61C25239C330034987E /* PaywallTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3E0C60525239C310034987E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3E0C6382523A0BF0034987E /* README.md in Resources */,
+				C3E0C61725239C330034987E /* LaunchScreen.storyboard in Resources */,
+				C3E0C61425239C330034987E /* Preview Assets.xcassets in Resources */,
+				C3E0C6372523A0BF0034987E /* PROMPT.md in Resources */,
+				C3E0C61125239C330034987E /* Assets.xcassets in Resources */,
+				C3E0C6342523A0B20034987E /* scripts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3E0C61B25239C330034987E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3E0C60325239C310034987E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4CA999E26A4CAE0007229F5 /* LoginPreference.swift in Sources */,
+				D4CA999A26A4B144007229F5 /* GetLoginPreference.swift in Sources */,
+				D4CA99A126A4CB27007229F5 /* GetImage.swift in Sources */,
+				C3E0C60B25239C310034987E /* AppDelegate.swift in Sources */,
+				C3E0C63225239F7A0034987E /* SwiftUIShakeHandling.swift in Sources */,
+				C3E0C60D25239C310034987E /* SceneDelegate.swift in Sources */,
+				D4CA99A926A4E2BC007229F5 /* AppCoordinator.swift in Sources */,
+				C3E0C60F25239C310034987E /* PaywallView.swift in Sources */,
+				C3E0C63025239D4B0034987E /* PaywallViewController.swift in Sources */,
+				D4CA99A626A4DE62007229F5 /* PaywallViewModel.swift in Sources */,
+				D4CA99A326A4CB7E007229F5 /* DisneyNetworkService.swift in Sources */,
+				D4CA999726A4AF5E007229F5 /* APIError.swift in Sources */,
+				D4CA99AB26A4F203007229F5 /* UIView+Extensions.swift in Sources */,
+				D4CA999526A49BBE007229F5 /* DisneyAPIExecutable.swift in Sources */,
+				D4CA99AE26A4F4A3007229F5 /* UIImageView+Extensions.swift in Sources */,
+				C3E0C63A2523A1A10034987E /* NetworkingHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3E0C61925239C330034987E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3E0C62225239C330034987E /* PaywallTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3E0C61F25239C330034987E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3E0C60625239C310034987E /* Paywall */;
+			targetProxy = C3E0C61E25239C330034987E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3E0C61525239C330034987E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3E0C61625239C330034987E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3E0C62425239C330034987E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C3E0C62525239C330034987E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3E0C62725239C330034987E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Paywall/SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Paywall/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.disneystreaming.Paywall;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3E0C62825239C330034987E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Paywall/SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Paywall/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.disneystreaming.Paywall;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C3E0C62A25239C330034987E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7VU28Z8W3T;
+				INFOPLIST_FILE = PaywallTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.disneystreaming.PaywallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paywall.app/Paywall";
+			};
+			name = Debug;
+		};
+		C3E0C62B25239C330034987E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7VU28Z8W3T;
+				INFOPLIST_FILE = PaywallTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.disneystreaming.PaywallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paywall.app/Paywall";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3E0C60225239C310034987E /* Build configuration list for PBXProject "Paywall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3E0C62425239C330034987E /* Debug */,
+				C3E0C62525239C330034987E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3E0C62625239C330034987E /* Build configuration list for PBXNativeTarget "Paywall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3E0C62725239C330034987E /* Debug */,
+				C3E0C62825239C330034987E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3E0C62925239C330034987E /* Build configuration list for PBXNativeTarget "PaywallTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3E0C62A25239C330034987E /* Debug */,
+				C3E0C62B25239C330034987E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3E0C5FF25239C310034987E /* Project object */;
+}

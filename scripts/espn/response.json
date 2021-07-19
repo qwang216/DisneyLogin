@@ -1,0 +1,11 @@
+{
+  "theme": "espn",
+  "subtexts": [
+    "Serving Fans. Anytime. Anywhere.",
+    "All the Sports. All the Time. Thousands of events, exclusive original series, and more -- all in HD."
+  ],
+  "trial-promo": "Start streaming Disney+ with your 7 day free trial, then only 6.99/month",
+  "image-assets": {
+    "splash": "images/espn.jpg"
+  }
+}

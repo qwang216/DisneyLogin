@@ -1,0 +1,12 @@
+{
+  "theme": "disney",
+  "subtexts": [
+    "The best stories in all the world, all in one place."
+  ],
+  "trial-promo": "Start streaming Disney+ with your 7 day free trial, then only 6.99/month",
+  "image-assets": {
+    "splash": "images/splash.png",
+    "brands": "images/brands.png",
+    "logo": "images/logo.png"
+  }
+}
