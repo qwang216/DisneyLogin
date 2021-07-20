@@ -20,10 +20,8 @@ class ESPNLoginActionableView: UIView, LoginActionableView, NibableView {
         delegate?.didTapSignupButton()
     }
 
-
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
     }
 
     func config(trailText: String) {

@@ -174,7 +174,7 @@
 				C3E0C61825239C330034987E /* Info.plist */,
 				C3E0C60A25239C310034987E /* AppDelegate.swift */,
 				C3E0C60C25239C310034987E /* SceneDelegate.swift */,
-				D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */,
+				D4CA99BC26A55871007229F5 /* Coordinator */,
 				D4CA99B326A532FC007229F5 /* View */,
 				D4CA99AC26A4F492007229F5 /* Extensions */,
 				D4CA99A726A4E2AE007229F5 /* ViewModels */,
@@ -272,6 +272,14 @@
 				D4CA99B726A5455E007229F5 /* ESPNLoginActionableView.swift */,
 			);
 			path = ESPN;
+			sourceTree = "<group>";
+		};
+		D4CA99BC26A55871007229F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99A826A4E2BC007229F5 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

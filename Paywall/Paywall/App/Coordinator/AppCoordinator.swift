@@ -15,8 +15,7 @@ class AppCoordinator {
     private var currViewModel: PaywallViewModel?
     private var payWallViewController: PaywallViewController?
 
-    private lazy var disneyLoginviewAble = DisneyLoginActionableView.instanceFromNib()
-    private lazy var espnLoginviewAble = ESPNLoginActionableView.instanceFromNib()
+    var loginableView: LoginActionableView?
 
     private let networkService: DisneyNetworkServiceable
 
@@ -46,18 +45,22 @@ class AppCoordinator {
         }
     }
 
+    /// Set Login Preference and only update UI when new theme is different from old
     private func setLoginPreference(_ preference: LoginPreference) {
         currViewModel = PaywallViewModel(preference: preference)
         guard let viewModel = currViewModel else { return }
+        guard payWallViewController?.payWallViewModel?.theme != viewModel.theme else { return }
         payWallViewController?.loginActionableView.removeFromSuperview()
         switch viewModel.theme {
         case .disney:
-            disneyLoginviewAble.delegate = self
-            payWallViewController?.loginActionableView = disneyLoginviewAble
+            loginableView = DisneyLoginActionableView.instanceFromNib()
         case .espn:
-            espnLoginviewAble.delegate = self
-            payWallViewController?.loginActionableView = espnLoginviewAble
+            loginableView = ESPNLoginActionableView.instanceFromNib()
         }
+        if let validLoginableView = loginableView {
+            payWallViewController?.loginActionableView = validLoginableView
+        }
+        loginableView?.delegate = self
         payWallViewController?.payWallViewModel = viewModel
     }
 

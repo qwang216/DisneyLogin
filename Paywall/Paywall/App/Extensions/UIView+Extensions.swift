@@ -59,31 +59,31 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         var anchor = Anchor()
         if let top = top {
-            let topConstrain = topAnchor.constraint(equalTo: top, constant: padding.top)
-            anchor.top = topConstrain
+            let topConstraint = topAnchor.constraint(equalTo: top, constant: padding.top)
+            anchor.top = topConstraint
         }
         if let leading = leading {
-            let leadingConstrain = leadingAnchor.constraint(equalTo: leading, constant: padding.left)
-            anchor.leading = leadingConstrain
+            let leadingConstraint = leadingAnchor.constraint(equalTo: leading, constant: padding.left)
+            anchor.leading = leadingConstraint
         }
         if let bottom = bottom {
-            let bottomConstrain = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
-            anchor.bottom = bottomConstrain
+            let bottomConstraint = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
+            anchor.bottom = bottomConstraint
         }
         if let trailing = trailing {
-            let trailingConstrain = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
-            anchor.trailing = trailingConstrain
+            let trailingConstraint = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
+            anchor.trailing = trailingConstraint
         }
         if size.width != 0 {
-            let widthConstrain = widthAnchor.constraint(equalToConstant: size.width)
-            anchor.width = widthConstrain
+            let widthConstraint = widthAnchor.constraint(equalToConstant: size.width)
+            anchor.width = widthConstraint
         }
         if size.height != 0 {
-            let heightConstrain = heightAnchor.constraint(equalToConstant: size.height)
-            anchor.height = heightConstrain
+            let heightConstraint = heightAnchor.constraint(equalToConstant: size.height)
+            anchor.height = heightConstraint
         }
-        let anchorConstrains = [anchor.top, anchor.bottom, anchor.leading, anchor.trailing, anchor.width, anchor.height].compactMap { $0 }
-        NSLayoutConstraint.activate(anchorConstrains)
+        let anchorConstraints = [anchor.top, anchor.bottom, anchor.leading, anchor.trailing, anchor.width, anchor.height].compactMap { $0 }
+        NSLayoutConstraint.activate(anchorConstraints)
         return anchor
     }
 }

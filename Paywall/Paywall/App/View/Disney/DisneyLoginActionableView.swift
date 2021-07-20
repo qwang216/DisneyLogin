@@ -13,7 +13,7 @@ protocol LoginFlowViewDelegate: AnyObject {
     func didTapSignupButton()
 }
 
-protocol LoginActionableView {
+protocol LoginActionableView: UIView {
     var delegate: LoginFlowViewDelegate? { get set }
     func config(trailText: String)
 }

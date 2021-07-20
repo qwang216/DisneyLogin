@@ -28,6 +28,7 @@ class PaywallViewController: UIViewController {
     weak var shakeDelegate: PaywallViewDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(splashImageView)
         updateUI()
     }
