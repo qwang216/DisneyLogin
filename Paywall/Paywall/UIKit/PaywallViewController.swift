@@ -18,10 +18,12 @@ class PaywallViewController: UIViewController {
         return iv
     }()
 
-    var loginActionableView: UIView = UIView()
+    var midTileView = UIView()
+    var loginActionableView = UIView()
 
     var payWallViewModel: PaywallViewModel? {
         didSet {
+            guard isViewLoaded else { return }
             updateUI()
         }
     }
@@ -40,14 +42,22 @@ class PaywallViewController: UIViewController {
         }
         shouldHideView(false)
         view.addSubview(loginActionableView)
+        view.addSubview(midTileView)
         let loginActionHeight = view.frame.height * 0.33
         let deltaPercent = view.frame.height * 0.04
         let sidePadding: CGFloat = viewModel.shouldFullScreenSplash ? 30 : 0
+
         loginActionableView.anchor(leading: view.leadingAnchor,
-                               bottom: view.bottomAnchor,
-                               trailing: view.trailingAnchor,
-                               padding: .init(top: 0, left: sidePadding, bottom: 0, right: sidePadding),
-                               size: .init(width: 0, height: loginActionHeight))
+                                   bottom: view.bottomAnchor,
+                                   trailing: view.trailingAnchor,
+                                   padding: .init(top: 0, left: sidePadding, bottom: 0, right: sidePadding),
+                                   size: .init(width: 0, height: loginActionHeight))
+        midTileView.anchor(leading: view.leadingAnchor,
+                           bottom: loginActionableView.topAnchor,
+                           trailing: view.trailingAnchor,
+                           padding: .init(top: 20, left: 20, bottom: 20, right: 20),
+                           size: .init(width: 0, height: loginActionHeight))
+        midTileView.backgroundColor = .clear
         view.backgroundColor = viewModel.shouldFullScreenSplash ? .black : UIColor(red: 0.100565, green: 0.113202, blue: 0.160653, alpha: 1)
         let bottomConstant: CGFloat = viewModel.shouldFullScreenSplash ? 0 : loginActionHeight + deltaPercent
         splashImageView.contentMode = viewModel.shouldFullScreenSplash ? .scaleAspectFill : .scaleToFill
@@ -59,9 +69,7 @@ class PaywallViewController: UIViewController {
                                               left: 0,
                                               bottom: bottomConstant,
                                               right: 0))
-        let imageTask = splashImageView.fetchImage(urlPath: viewModel.splashImageURLString, imageCacher: nil)
-        imageTask?.resume()
-        view.layoutIfNeeded()
+        splashImageView.fetchImage(urlPath: viewModel.splashImageURLString, imageCacher: nil)?.resume()
     }
 
     private func shouldHideView(_ shouldHide: Bool) {

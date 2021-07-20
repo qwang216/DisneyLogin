@@ -20,6 +20,10 @@
 		C3E0C6372523A0BF0034987E /* PROMPT.md in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C6352523A0BF0034987E /* PROMPT.md */; };
 		C3E0C6382523A0BF0034987E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C3E0C6362523A0BF0034987E /* README.md */; };
 		C3E0C63A2523A1A10034987E /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0C6392523A1A00034987E /* NetworkingHelpers.swift */; };
+		D43B837C26A66F2F0074F1A3 /* DisneyLoginMidTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43B837B26A66F2F0074F1A3 /* DisneyLoginMidTile.xib */; };
+		D43B837E26A670180074F1A3 /* DisneyLoginMidTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43B837D26A670180074F1A3 /* DisneyLoginMidTile.swift */; };
+		D43B838326A67C0F0074F1A3 /* ESPNLoginMidTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43B838226A67C0F0074F1A3 /* ESPNLoginMidTile.xib */; };
+		D43B838526A67CE60074F1A3 /* ESPNLoginMidTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43B838426A67CE60074F1A3 /* ESPNLoginMidTile.swift */; };
 		D4CA999526A49BBE007229F5 /* DisneyAPIExecutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA999426A49BBE007229F5 /* DisneyAPIExecutable.swift */; };
 		D4CA999726A4AF5E007229F5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA999626A4AF5E007229F5 /* APIError.swift */; };
 		D4CA999A26A4B144007229F5 /* GetLoginPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA999926A4B144007229F5 /* GetLoginPreference.swift */; };
@@ -65,6 +69,10 @@
 		C3E0C6352523A0BF0034987E /* PROMPT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PROMPT.md; path = ../../PROMPT.md; sourceTree = "<group>"; };
 		C3E0C6362523A0BF0034987E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		C3E0C6392523A1A00034987E /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
+		D43B837B26A66F2F0074F1A3 /* DisneyLoginMidTile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisneyLoginMidTile.xib; sourceTree = "<group>"; };
+		D43B837D26A670180074F1A3 /* DisneyLoginMidTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyLoginMidTile.swift; sourceTree = "<group>"; };
+		D43B838226A67C0F0074F1A3 /* ESPNLoginMidTile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ESPNLoginMidTile.xib; sourceTree = "<group>"; };
+		D43B838426A67CE60074F1A3 /* ESPNLoginMidTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESPNLoginMidTile.swift; sourceTree = "<group>"; };
 		D4CA999426A49BBE007229F5 /* DisneyAPIExecutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyAPIExecutable.swift; sourceTree = "<group>"; };
 		D4CA999626A4AF5E007229F5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		D4CA999926A4B144007229F5 /* GetLoginPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoginPreference.swift; sourceTree = "<group>"; };
@@ -184,6 +192,42 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		D43B837F26A67BD60074F1A3 /* LoginActionableView */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99B126A532E9007229F5 /* DisneyLoginActionableView.swift */,
+				D4CA99AF26A532CF007229F5 /* DisneyLoginActionableView.xib */,
+			);
+			path = LoginActionableView;
+			sourceTree = "<group>";
+		};
+		D43B838026A67BE30074F1A3 /* LoginActionableView */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA99B526A54549007229F5 /* ESPNLoginActionableView.xib */,
+				D4CA99B726A5455E007229F5 /* ESPNLoginActionableView.swift */,
+			);
+			path = LoginActionableView;
+			sourceTree = "<group>";
+		};
+		D43B838126A67BEE0074F1A3 /* LoginMidTile */ = {
+			isa = PBXGroup;
+			children = (
+				D43B837D26A670180074F1A3 /* DisneyLoginMidTile.swift */,
+				D43B837B26A66F2F0074F1A3 /* DisneyLoginMidTile.xib */,
+			);
+			path = LoginMidTile;
+			sourceTree = "<group>";
+		};
+		D43B838626A67DEB0074F1A3 /* LoginMidTile */ = {
+			isa = PBXGroup;
+			children = (
+				D43B838426A67CE60074F1A3 /* ESPNLoginMidTile.swift */,
+				D43B838226A67C0F0074F1A3 /* ESPNLoginMidTile.xib */,
+			);
+			path = LoginMidTile;
+			sourceTree = "<group>";
+		};
 		D4CA999826A4AF72007229F5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,8 +303,8 @@
 		D4CA99B426A5452E007229F5 /* Disney */ = {
 			isa = PBXGroup;
 			children = (
-				D4CA99B126A532E9007229F5 /* DisneyLoginActionableView.swift */,
-				D4CA99AF26A532CF007229F5 /* DisneyLoginActionableView.xib */,
+				D43B837F26A67BD60074F1A3 /* LoginActionableView */,
+				D43B838126A67BEE0074F1A3 /* LoginMidTile */,
 			);
 			path = Disney;
 			sourceTree = "<group>";
@@ -268,8 +312,8 @@
 		D4CA99B926A54562007229F5 /* ESPN */ = {
 			isa = PBXGroup;
 			children = (
-				D4CA99B526A54549007229F5 /* ESPNLoginActionableView.xib */,
-				D4CA99B726A5455E007229F5 /* ESPNLoginActionableView.swift */,
+				D43B838026A67BE30074F1A3 /* LoginActionableView */,
+				D43B838626A67DEB0074F1A3 /* LoginMidTile */,
 			);
 			path = ESPN;
 			sourceTree = "<group>";
@@ -363,10 +407,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D43B838326A67C0F0074F1A3 /* ESPNLoginMidTile.xib in Resources */,
 				D4CA99B626A54549007229F5 /* ESPNLoginActionableView.xib in Resources */,
 				D4CA99B026A532CF007229F5 /* DisneyLoginActionableView.xib in Resources */,
 				C3E0C6382523A0BF0034987E /* README.md in Resources */,
 				C3E0C61725239C330034987E /* LaunchScreen.storyboard in Resources */,
+				D43B837C26A66F2F0074F1A3 /* DisneyLoginMidTile.xib in Resources */,
 				C3E0C61425239C330034987E /* Preview Assets.xcassets in Resources */,
 				C3E0C6372523A0BF0034987E /* PROMPT.md in Resources */,
 				C3E0C61125239C330034987E /* Assets.xcassets in Resources */,
@@ -392,6 +438,7 @@
 				D4CA999A26A4B144007229F5 /* GetLoginPreference.swift in Sources */,
 				D4CA99A126A4CB27007229F5 /* GetImage.swift in Sources */,
 				C3E0C60B25239C310034987E /* AppDelegate.swift in Sources */,
+				D43B837E26A670180074F1A3 /* DisneyLoginMidTile.swift in Sources */,
 				C3E0C63225239F7A0034987E /* SwiftUIShakeHandling.swift in Sources */,
 				C3E0C60D25239C310034987E /* SceneDelegate.swift in Sources */,
 				D4CA99BB26A54FA3007229F5 /* UIViewController+Extensions.swift in Sources */,
@@ -399,6 +446,7 @@
 				D4CA99A926A4E2BC007229F5 /* AppCoordinator.swift in Sources */,
 				D4CA99B826A5455E007229F5 /* ESPNLoginActionableView.swift in Sources */,
 				C3E0C60F25239C310034987E /* PaywallView.swift in Sources */,
+				D43B838526A67CE60074F1A3 /* ESPNLoginMidTile.swift in Sources */,
 				C3E0C63025239D4B0034987E /* PaywallViewController.swift in Sources */,
 				D4CA99A626A4DE62007229F5 /* PaywallViewModel.swift in Sources */,
 				D4CA99A326A4CB7E007229F5 /* DisneyNetworkService.swift in Sources */,

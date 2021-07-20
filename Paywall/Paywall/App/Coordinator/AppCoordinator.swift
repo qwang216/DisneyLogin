@@ -48,20 +48,41 @@ class AppCoordinator {
     /// Set Login Preference and only update UI when new theme is different from old
     private func setLoginPreference(_ preference: LoginPreference) {
         currViewModel = PaywallViewModel(preference: preference)
-        guard let viewModel = currViewModel else { return }
-        guard payWallViewController?.payWallViewModel?.theme != viewModel.theme else { return }
-        payWallViewController?.loginActionableView.removeFromSuperview()
+        guard let viewModel = currViewModel, let payWallViewController = payWallViewController else { return }
+        guard payWallViewController.payWallViewModel?.theme != viewModel.theme else { return }
+        payWallViewController.loginActionableView.removeFromSuperview()
         switch viewModel.theme {
         case .disney:
             loginableView = DisneyLoginActionableView.instanceFromNib()
         case .espn:
             loginableView = ESPNLoginActionableView.instanceFromNib()
+            payWallViewController.midTileView = DisneyLoginMidTile.instanceFromNib()
         }
+        configMidTileViewOn(paywallVC: payWallViewController, theme: viewModel.theme, preference: preference)
         if let validLoginableView = loginableView {
-            payWallViewController?.loginActionableView = validLoginableView
+            payWallViewController.loginActionableView = validLoginableView
         }
         loginableView?.delegate = self
-        payWallViewController?.payWallViewModel = viewModel
+        payWallViewController.payWallViewModel = viewModel
+    }
+
+    private func configMidTileViewOn(paywallVC: PaywallViewController, theme: Theme, preference: LoginPreference) {
+        paywallVC.midTileView.removeFromSuperview()
+        switch theme {
+        case .disney:
+            let midTile = DisneyLoginMidTile.instanceFromNib()
+            if let logoURL = preference.imageAssets.logo, let brandsURL = preference.imageAssets.brands, let quote = preference.subtexts.first {
+                midTile.config(DisneyMidTileViewModel(mainLogoURL: logoURL, quote: quote, brandsURL: brandsURL))
+            }
+            paywallVC.midTileView = midTile
+        case .espn:
+            let midTile = ESPNLoginMidTile.instanceFromNib()
+            if preference.subtexts.count == 2, let title = preference.subtexts.first, let subtitle = preference.subtexts.last {
+                midTile.config(ESPNLoginMidTileViewModel(title: title, subTitle: subtitle))
+            }
+            paywallVC.midTileView = midTile
+        }
+
     }
 
     private func showAlert(title: String, message: String) {
