@@ -50,15 +50,8 @@ class AppCoordinator {
         currViewModel = PaywallViewModel(preference: preference)
         guard let viewModel = currViewModel, let payWallViewController = payWallViewController else { return }
         guard payWallViewController.payWallViewModel?.theme != viewModel.theme else { return }
-        payWallViewController.loginActionableView.removeFromSuperview()
-        switch viewModel.theme {
-        case .disney:
-            loginableView = DisneyLoginActionableView.instanceFromNib()
-        case .espn:
-            loginableView = ESPNLoginActionableView.instanceFromNib()
-            payWallViewController.midTileView = DisneyLoginMidTile.instanceFromNib()
-        }
-        configMidTileViewOn(paywallVC: payWallViewController, theme: viewModel.theme, preference: preference)
+        configLoginableView(paywallVC: payWallViewController, theme: viewModel.theme)
+        configMidTileViewOn(paywallVC: payWallViewController, preference: preference)
         if let validLoginableView = loginableView {
             payWallViewController.loginActionableView = validLoginableView
         }
@@ -66,9 +59,19 @@ class AppCoordinator {
         payWallViewController.payWallViewModel = viewModel
     }
 
-    private func configMidTileViewOn(paywallVC: PaywallViewController, theme: Theme, preference: LoginPreference) {
-        paywallVC.midTileView.removeFromSuperview()
+    private func configLoginableView(paywallVC: PaywallViewController, theme: Theme) {
+        paywallVC.loginActionableView.removeFromSuperview()
         switch theme {
+        case .disney:
+            loginableView = DisneyLoginActionableView.instanceFromNib()
+        case .espn:
+            loginableView = ESPNLoginActionableView.instanceFromNib()
+        }
+    }
+
+    private func configMidTileViewOn(paywallVC: PaywallViewController, preference: LoginPreference) {
+        paywallVC.midTileView.removeFromSuperview()
+        switch preference.theme {
         case .disney:
             let midTile = DisneyLoginMidTile.instanceFromNib()
             if let logoURL = preference.imageAssets.logo, let brandsURL = preference.imageAssets.brands, let quote = preference.subtexts.first {

@@ -32,7 +32,6 @@ class PaywallViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(splashImageView)
-        updateUI()
     }
 
     func updateUI() {
@@ -75,6 +74,7 @@ class PaywallViewController: UIViewController {
     private func shouldHideView(_ shouldHide: Bool) {
         splashImageView.isHidden = shouldHide
         loginActionableView.isHidden = shouldHide
+        midTileView.isHidden = shouldHide
     }
 
     func didShake() {
