@@ -11,13 +11,11 @@ import SwiftUI
 
 class AppCoordinator {
     private let window: UIWindow
-
-    private var currViewModel: PaywallViewModel?
-    private var payWallViewController: PaywallViewController?
-
-    var loginableView: LoginActionableView?
-
     private let networkService: DisneyNetworkServiceable
+    var navController: UINavigationController?
+    let splashViewController = UIViewController()
+    var authCoordinator: AuthCoordinator?
+    var isAuthenticated: Bool = false
 
     init(window: UIWindow, networkService: DisneyNetworkServiceable) {
         self.window = window
@@ -25,89 +23,17 @@ class AppCoordinator {
     }
 
     func start() {
-        payWallViewController = PaywallViewController()
-        payWallViewController?.shakeDelegate = self
-        window.rootViewController = payWallViewController
+        splashViewController.view.backgroundColor = .white
+        navController = UINavigationController(rootViewController: splashViewController)
+        window.rootViewController = navController
         window.makeKeyAndVisible()
-        fetchLoginPreference()
-    }
-
-    private func fetchLoginPreference() {
-        networkService.getLoginPreference { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let preference):
-                    self?.setLoginPreference(preference)
-                case .failure(let err):
-                    self?.showAlert(title: "Oops", message: err.localizedDescription)
-                }
-            }
+        if !isAuthenticated {
+            startAuthCoordinator()
         }
     }
 
-    /// Set Login Preference and only update UI when new theme is different from old
-    private func setLoginPreference(_ preference: LoginPreference) {
-        currViewModel = PaywallViewModel(preference: preference)
-        guard let viewModel = currViewModel, let payWallViewController = payWallViewController else { return }
-        guard payWallViewController.payWallViewModel?.theme != viewModel.theme else { return }
-        configLoginableView(paywallVC: payWallViewController, theme: viewModel.theme)
-        configMidTileViewOn(paywallVC: payWallViewController, preference: preference)
-        if let validLoginableView = loginableView {
-            payWallViewController.loginActionableView = validLoginableView
-        }
-        loginableView?.delegate = self
-        payWallViewController.payWallViewModel = viewModel
-    }
-
-    private func configLoginableView(paywallVC: PaywallViewController, theme: Theme) {
-        paywallVC.loginActionableView.removeFromSuperview()
-        switch theme {
-        case .disney:
-            loginableView = DisneyLoginActionableView.instanceFromNib()
-        case .espn:
-            loginableView = ESPNLoginActionableView.instanceFromNib()
-        }
-    }
-
-    private func configMidTileViewOn(paywallVC: PaywallViewController, preference: LoginPreference) {
-        paywallVC.midTileView.removeFromSuperview()
-        switch preference.theme {
-        case .disney:
-            let midTile = DisneyLoginMidTile.instanceFromNib()
-            if let logoURL = preference.imageAssets.logo, let brandsURL = preference.imageAssets.brands, let quote = preference.subtexts.first {
-                midTile.config(DisneyMidTileViewModel(mainLogoURL: logoURL, quote: quote, brandsURL: brandsURL))
-            }
-            paywallVC.midTileView = midTile
-        case .espn:
-            let midTile = ESPNLoginMidTile.instanceFromNib()
-            if preference.subtexts.count == 2, let title = preference.subtexts.first, let subtitle = preference.subtexts.last {
-                midTile.config(ESPNLoginMidTileViewModel(title: title, subTitle: subtitle))
-            }
-            paywallVC.midTileView = midTile
-        }
-
-    }
-
-    private func showAlert(title: String, message: String) {
-        payWallViewController?.showAlertView(title: title, message: message)
-    }
-}
-
-extension AppCoordinator: LoginFlowViewDelegate {
-    func didTapLoginButton() {
-        payWallViewController?.showAlertView(title: "Log In", message: "")
-    }
-
-    func didTapSignupButton() {
-        guard let viewModel = currViewModel else { return }
-        payWallViewController?.showAlertView(title: "SKU", message: viewModel.sku)
-    }
-
-
-}
-
-extension AppCoordinator: PaywallViewDelegate {
-    func userDidShakeDevice() {
-        fetchLoginPreference()
+    private func startAuthCoordinator() {
+        authCoordinator = AuthCoordinator(navController: navController!, service: networkService)
+        authCoordinator?.start()
     }
 }
