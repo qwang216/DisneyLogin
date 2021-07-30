@@ -12,7 +12,7 @@ import SwiftUI
 class AppCoordinator {
     private let window: UIWindow
     private let networkService: DisneyNetworkServiceable
-    var navController: UINavigationController?
+    let navController: UINavigationController
     let splashViewController = UIViewController()
     var authCoordinator: AuthCoordinator?
     var isAuthenticated: Bool = false
@@ -20,11 +20,12 @@ class AppCoordinator {
     init(window: UIWindow, networkService: DisneyNetworkServiceable) {
         self.window = window
         self.networkService = networkService
+        self.navController = UINavigationController()
     }
 
     func start() {
         splashViewController.view.backgroundColor = .white
-        navController = UINavigationController(rootViewController: splashViewController)
+        navController.setViewControllers([splashViewController], animated: true)
         window.rootViewController = navController
         window.makeKeyAndVisible()
         if !isAuthenticated {
@@ -33,7 +34,7 @@ class AppCoordinator {
     }
 
     private func startAuthCoordinator() {
-        authCoordinator = AuthCoordinator(navController: navController!, service: networkService)
+        authCoordinator = AuthCoordinator(navController: navController, service: networkService)
         authCoordinator?.start()
     }
 }
