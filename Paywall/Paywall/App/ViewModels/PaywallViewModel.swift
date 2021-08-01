@@ -8,39 +8,60 @@
 
 import Foundation
 
-struct PaywallViewModel {
-    private let preference: LoginPreference
+protocol PaywallViewModelDelegate: AnyObject {
+    func failedFetchingPreference(_ err: APIError)
+    func didfinishFetchingPreference()
+}
 
-    init(preference: LoginPreference) {
-        self.preference = preference
+class PaywallViewModel {
+    private let networkService: DisneyNetworkServiceable
+    var preference: LoginPreference?
+    weak var delegate: PaywallViewModelDelegate?
+
+    init(networkService: DisneyNetworkServiceable) {
+        self.networkService = networkService
+    }
+
+    func fetchLoginPreference() {
+        networkService.getLoginPreference { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let preference):
+                    self?.preference = preference
+                    self?.delegate?.didfinishFetchingPreference()
+                case .failure(let err):
+                    self?.delegate?.failedFetchingPreference(err)
+                }
+            }
+        }
     }
 
     var theme: Theme {
-        return preference.theme
+        return preference?.theme ?? .disney
     }
 
     var sku: String {
-        return preference.sku
+        return preference?.sku ?? "N/A"
     }
 
     var shouldFullScreenSplash: Bool {
-        return preference.theme == .espn
+        return preference?.theme == .espn
     }
 
     var freeTrailText: String {
-        return preference.trialPromo
+        return preference?.trialPromo ?? "N/A"
     }
 
     var splashImageURLString: String {
-        return preference.imageAssets.splash
+        return preference?.imageAssets.splash ?? ""
     }
 
     var logoURLString: String? {
-        return preference.imageAssets.logo
+        return preference?.imageAssets.logo
     }
 
     var brandsURLString: String? {
-        return preference.imageAssets.brands
+        return preference?.imageAssets.brands
     }
 
 }
