@@ -24,7 +24,6 @@ class DisneyLoginActionableView: UIView, LoginActionableView, NibableView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        print(#function)
     }
 
     @IBAction func signupButtonTapped(_ sender: UIButton) {
